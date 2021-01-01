@@ -1,0 +1,34 @@
+name: build_job_wait
+runner_type: python-script
+description: "Kick off Jenkins Build Jobs (return enhanced info) and waits for completion"
+enabled: true
+entry_point: "build_job_wait.py"
+parameters:
+  project:
+    type: "string"
+    description: "Project to build in Jenkins"
+    required: true
+  parameters:
+    type: "object"
+    description: "Optional parameters for build in JSON format"
+  build_max_wait:
+    type: "integer"
+    description: "Seconds to wait for executor, default 600s"
+    default: 600
+  build_poll_interval:
+    type: "integer"
+    description: "The interval to poll the build for completion status"
+    default: 30
+  queue_max_wait:
+    type: "integer"
+    description: "Seconds to wait for the job to queue, default 60s"
+    default: 60
+  queue_poll_interval:
+    type: "integer"
+    description: "The interval to poll the queue for status"
+    default: 30
+  config_override:
+    type: "object"
+    required: false
+    secret: true
+    description: "Override pack configuration by providing an object with url, username and password keys and appropriate values"

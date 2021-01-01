@@ -1,5 +1,9 @@
 # Change Log
 
+# 0.7.7
+
+- Added `build_job_wait` action to build a job and wait for the completion of the job.
+
 # 0.7.6
 
 - If `build_job_enh` fails and `queue_id` is known, include it in the result to let users follow up later.
